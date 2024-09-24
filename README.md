@@ -10,6 +10,22 @@ Before you begin, make sure you have the following installed:
 - Docker
 - Git (optional, for cloning the repository)
 
+
+# For Command to run the Application
+## For Database Container 
+
+   ```bash
+   docker run -d --name mysql --network twotier -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DATABASE=mydb mysql:5.7
+
+   ```
+
+## For FrontEnd Container
+
+   ```bash
+   docker run -d --name twotierm --network twotier -e MYSQL_HOST=mysql -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DB=mydb -p 5000:5000 mytwotier:latest
+
+
+   ```
 ## Setup
 
 1. Clone this repository (if you haven't already):
